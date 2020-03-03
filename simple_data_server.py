@@ -34,7 +34,7 @@ class ServerFacade:
 
     def start_server(self):
         self.httpd = http.server.HTTPServer(self.server_address, ServerHandler)
-        thread = threading.Thread(target=self.httpd.serve_forever, argsd=[
+        thread = threading.Thread(target=self.httpd.serve_forever, args=[
                                   self.polling_interval])
         thread.start()
 
