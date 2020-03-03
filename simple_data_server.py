@@ -6,7 +6,9 @@ import requests
 class ServerHandler(http.server.BaseHTTPRequestHandler):
     def __init__(self, request, client_address, server):
         super().__init__(request, client_address, server)
-        self.x, self.y, self.z = (0.0, 0.0, 0.0)
+        self.x = float(0)
+        self.y = float(0)
+        self.z = float(0)
 
     def do_GET(self):
         self.send_response(200)
