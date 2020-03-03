@@ -4,10 +4,11 @@ import requests
 
 
 class ServerHandler(http.server.BaseHTTPRequestHandler):
+    x = float(0)
+    y = float(0)
+    z = float(0)
+
     def __init__(self, request, client_address, server):
-        self.x = float(0)
-        self.y = float(0)
-        self.z = float(0)
         super().__init__(request, client_address, server)
 
     def do_GET(self):
