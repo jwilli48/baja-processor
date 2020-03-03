@@ -39,7 +39,7 @@ class ServerFacade:
         thread.start()
 
     def save_data(self, data_str):
-        requests.post(
+        resp = requests.post(
             self.get_server_url(), data=data_str)
 
     def get_server_url(self):
