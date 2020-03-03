@@ -17,13 +17,13 @@ class ServerHandler(http.server.BaseHTTPRequestHandler):
         self.end_headers()
 
         self.wfile.write(
-            bytes(str(self.x) + ' ' + str(self.y) + ' ' + str(self.z), 'utf-8'))
+            bytes(str(ServerHandler.x) + ' ' + str(ServerHandler.y) + ' ' + str(ServerHandler.z), 'utf-8'))
         return
 
     def do_POST(self):
         content_length = int(self.headers['Content-Length'])
         body = str(self.rfile.read(content_length), 'utf-8')
-        self.x, self.y, self.z = [float(value) for value in body.split(' ')]
+        ServerHandler.x, ServerHandler.y, ServerHandler.z = [float(value) for value in body.split(' ')]
         self.send_response(200)
         self.end_headers()
         self.wfile.write(b'Response received' + bytes(body, 'utf-8'))
